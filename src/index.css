@@ -1,1 +1,14 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+html {
+  font-family: 'Poppins', sans-serif;
+}
+
+@theme {
+  --color-main: #292653;
+  --color-platinum-500: #64748b;
+}
+
+.btn-primary {
+  @apply px-6 py-4 bg-main rounded-lg text-center text-white font-bold cursor-pointer hover:bg-[#1f1d40] active:bg-[#1f1d40];
+}
