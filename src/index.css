@@ -9,6 +9,14 @@ html {
   --color-platinum-500: #64748b;
 }
 
+.container {
+  @apply flex justify-center max-w-[393px] h-[852px] mx-auto;
+}
+
 .btn-primary {
   @apply px-6 py-4 bg-main rounded-lg text-center text-white font-bold cursor-pointer hover:bg-[#1f1d40] active:bg-[#1f1d40];
+}
+
+.input-primary {
+  @apply px-4 py-[14px] rounded-lg border border-[#E2E8F0] bg-white text-base placeholder:text-platinum-500;
 }
