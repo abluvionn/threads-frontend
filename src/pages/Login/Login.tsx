@@ -1,6 +1,16 @@
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { login } from '../../store/users/usersThunks';
 import { FormEvent, useState } from 'react';
+import { LoginMutation } from '../../types/user';
+import {
+  selectLoginError,
+  selectLoginLoading,
+} from '../../store/users/usersSlice';
 
 export const Login = () => {
+  const dispatch = useAppDispatch();
+  const loginError = useAppSelector(selectLoginError);
+  const loginLoading = useAppSelector(selectLoginLoading);
   const [idInput, setIdInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
@@ -23,7 +33,15 @@ export const Login = () => {
 
   const onFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log({ id: idInput, password: passwordInput });
+    const loginData: LoginMutation = {
+      alatooID: Number(idInput),
+      password: passwordInput,
+    };
+    void sendLoginData(loginData);
+  };
+
+  const sendLoginData = async (loginData: LoginMutation) => {
+    await dispatch(login(loginData));
   };
 
   const steps = [
@@ -62,6 +80,11 @@ export const Login = () => {
           </nav>
           <form id='login-form' onSubmit={onFormSubmit}>
             <div className='flex flex-col gap-2 mt-[80px]'>
+              {loginError && (
+                <span className='inline-flex items-center rounded-sm bg-red-50 px-3 py-2 text-sm text-red-700 ring-1 ring-red-600/10 ring-inset'>
+                  {loginError.error}
+                </span>
+              )}
               <input
                 type='text'
                 className='input-primary'
@@ -142,13 +165,13 @@ export const Login = () => {
             className='btn-primary w-full mt-4'
             type='submit'
             form='login-form'
-            disabled={!isCheckboxChecked}
+            disabled={!isCheckboxChecked || loginLoading}
           >
-            Agree and continue
+            {loginLoading ? 'Loading...' : 'Agree and continue'}
           </button>
         </div>
       ),
     },
   ];
-  return <div className='container'>{steps[currentStepIndex].content}</div>;
+  return steps[currentStepIndex].content;
 };

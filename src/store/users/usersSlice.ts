@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { login, logout } from './usersThunks';
-import { LoginResponse } from '~/types/user';
-import { GlobalError } from '~/types/error';
-import { RootState } from '~/app/store';
+import { GlobalError } from '../../types/error';
+import { LoginResponse } from '../../types/user';
+import { RootState } from '../../app/store';
 
 interface UsersState {
   user: LoginResponse | null;
@@ -46,10 +46,7 @@ export const usersSlice = createSlice({
       )
       .addCase(
         login.rejected,
-        (
-          state,
-          { payload: error }: PayloadAction<GlobalError | undefined>
-        ) => {
+        (state, { payload: error }: PayloadAction<GlobalError | undefined>) => {
           state.loginError = error ?? null;
           state.loginLoading = false;
         }

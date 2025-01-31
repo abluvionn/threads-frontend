@@ -10,10 +10,10 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { usersReducer } from '@users/usersSlice';
+import { usersReducer } from '../store/users/usersSlice';
 
 const userPersistConfig = {
-  key: 'yurt:users',
+  key: 'threads:users',
   storage,
   whitelist: ['user'],
 };
@@ -27,14 +27,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [
-          FLUSH,
-          REHYDRATE,
-          PAUSE,
-          PERSIST,
-          PURGE,
-          REGISTER,
-        ],
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
 });

@@ -2,9 +2,9 @@ import axios from 'axios';
 import { API_URL } from './constants';
 import { RootState } from './app/store';
 import { Store } from '@reduxjs/toolkit';
-import { unsetUser, updateState } from '@users/usersSlice';
-import { ApiError } from './types/error'
+import { ApiError } from './types/error';
 import { LoginResponse } from './types/user';
+import { unsetUser, updateState } from './store/users/usersSlice';
 
 const axiosApi = axios.create({
   baseURL: API_URL,

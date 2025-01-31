@@ -12,7 +12,7 @@ html {
 }
 
 .container {
-  @apply flex justify-center max-w-[393px] max-h-[852px] mx-auto;
+  @apply flex justify-center max-w-[393px] max-h-[852px];
 }
 
 .btn-primary {

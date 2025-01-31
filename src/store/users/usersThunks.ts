@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { isAxiosError } from 'axios';
-import axiosApi from '~/axiosApi';
-import { LoginMutation, LoginResponse } from '~/types/user';
-import { GlobalError } from '~/types/error';
+import axiosApi from '../../axiosApi';
+import { GlobalError } from '../../types/error';
+import { LoginResponse, LoginMutation } from '../../types/user';
 
 export const login = createAsyncThunk<
   LoginResponse,
@@ -13,7 +13,7 @@ export const login = createAsyncThunk<
 >('users/login', async (loginMutation, { rejectWithValue }) => {
   try {
     const { data: response } = await axiosApi.post<LoginResponse>(
-      '/users/login',
+      '/users/sessions',
       loginMutation,
       { withCredentials: true }
     );
