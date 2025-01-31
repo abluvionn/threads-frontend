@@ -7,14 +7,16 @@ html {
 @theme {
   --color-main: #292653;
   --color-platinum-500: #64748b;
+  --color-purple-500: #7E49FF;
+  --color-disabled: #F1F5F9;
 }
 
 .container {
-  @apply flex justify-center max-w-[393px] h-[852px] mx-auto;
+  @apply flex justify-center max-w-[393px] max-h-[852px] mx-auto;
 }
 
 .btn-primary {
-  @apply px-6 py-4 bg-main rounded-lg text-center text-white font-bold cursor-pointer hover:bg-[#1f1d40] active:bg-[#1f1d40];
+  @apply px-6 py-4 bg-main rounded-lg text-center text-white font-bold cursor-pointer hover:bg-[#1f1d40] active:bg-[#1f1d40] disabled:bg-disabled disabled:text-[#CBD5E1] disabled:cursor-auto;
 }
 
 .input-primary {
