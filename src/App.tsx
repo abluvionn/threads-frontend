@@ -1,12 +1,20 @@
 import { Route, Routes } from 'react-router-dom';
-import { Layout } from './components';
-import { Login } from './pages';
+import { Layout, ProtectedRoute } from './components';
+import { Home, Login } from './pages';
 
 function App() {
   return (
     <Layout>
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route
+          path='/'
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </Layout>
   );

@@ -6,9 +6,11 @@ import {
   selectLoginError,
   selectLoginLoading,
 } from '../../store/users/usersSlice';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const loginError = useAppSelector(selectLoginError);
   const loginLoading = useAppSelector(selectLoginLoading);
   const [idInput, setIdInput] = useState('');
@@ -41,7 +43,8 @@ export const Login = () => {
   };
 
   const sendLoginData = async (loginData: LoginMutation) => {
-    await dispatch(login(loginData));
+    await dispatch(login(loginData)).unwrap();
+    navigate('/');
   };
 
   const steps = [
