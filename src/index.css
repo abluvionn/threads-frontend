@@ -7,12 +7,14 @@ html {
 @theme {
   --color-main: #292653;
   --color-platinum-500: #64748b;
-  --color-purple-500: #7E49FF;
-  --color-disabled: #F1F5F9;
+  --color-purple-500: #7e49ff;
+  --color-disabled: #f1f5f9;
+  --color-dark: #020617;
+  --color-main-70: #292653B2;
 }
 
 .container {
-  @apply flex justify-center max-w-[393px] max-h-[852px] mx-auto;
+  @apply max-w-[393px] max-h-[852px] mx-auto px-5;
 }
 
 .btn-primary {
@@ -21,4 +23,12 @@ html {
 
 .input-primary {
   @apply px-4 py-[14px] rounded-lg border border-[#E2E8F0] bg-white text-base placeholder:text-platinum-500;
+}
+
+.border-bottom-light {
+  @apply after:content-[""] after:absolute after:border-b after:border-[#E2E8F0] after:-left-6 after:-right-6 after:bottom-0;
+}
+
+.bg-full-white {
+  @apply before:content-[""] before:absolute before:w-[401px] before:-left-6 before:h-full before:bg-white;
 }
