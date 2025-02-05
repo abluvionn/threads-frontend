@@ -7,6 +7,8 @@ import {
   selectLoginLoading,
 } from '../../store/users/usersSlice';
 import { useNavigate } from 'react-router-dom';
+import { Icon } from '../../iconpack';
+import { palette } from '../../utils/palette';
 
 export const Login = () => {
   const dispatch = useAppDispatch();
@@ -52,7 +54,7 @@ export const Login = () => {
       content: (
         <div className='flex justify-center'>
           <div className='mt-[215px] max-w-[343px] flex flex-col items-center text-center'>
-            <img src='/logo.png' alt='' />
+            <img src='/icons/logo.png' alt='' />
             <h1 className='mt-4 text-4xl font-semibold leading-11'>
               Welcome to <span className='text-main'>THREADS</span>
             </h1>
@@ -76,9 +78,9 @@ export const Login = () => {
             <h1 className='text-lg font-bold leading-6 relative w-full flex items-center justify-center'>
               <button
                 onClick={handleStepBack}
-                className='absolute left-0 flex justify-center items-center cursor-pointer'
+                className='absolute left-0 flex justify-center items-center cursor-pointer p-1 -m-1'
               >
-                <img src='/arrow-left.svg' alt='' />
+                <Icon name='arrowLeft' size='sm' color={palette.dark} />
               </button>
               <span>Login</span>
             </h1>
@@ -111,7 +113,7 @@ export const Login = () => {
                   className='absolute right-4 cursor-pointer'
                   onClick={togglePasswordVisibility}
                 >
-                  <img src='/eye.svg' alt='' />
+                  <Icon name='eyeClosed' size='md' color={palette.black} />
                 </span>
               </div>
               <p className='text-sm leading-5 text-platinum-500'>
@@ -125,7 +127,7 @@ export const Login = () => {
                 type='checkbox'
                 name='terms-agree'
                 id='terms-agree'
-                className='col-start-1 row-start-1 appearance-none rounded-sm border border-purple-500 bg-white checked:border-purple-500 checked:bg-purple-500 indeterminate:border-purple-500 indeterminate:bg-purple-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto cursor-pointer'
+                className='col-start-1 row-start-1 appearance-none rounded-sm border border-secondary bg-white checked:border-secondary checked:bg-secondary indeterminate:border-secondary indeterminate:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto cursor-pointer'
                 onChange={(e) => setIsCheckboxChecked(e.target.checked)}
                 checked={isCheckboxChecked}
               />
@@ -152,15 +154,15 @@ export const Login = () => {
             </div>
             <label htmlFor='terms-agree' className='text-sm leading-5 mt-2'>
               By selecting Agree and continue, I agree to Dynamic Layers{' '}
-              <a href='#' className='text-purple-500 underline font-bold'>
+              <a href='#' className='text-secondary underline font-bold'>
                 Terms of Service
               </a>
               ,{' '}
-              <a href='#' className='text-purple-500 underline font-bold'>
+              <a href='#' className='text-secondary underline font-bold'>
                 Notification Policy
               </a>{' '}
               and acknowledge the{' '}
-              <a href='#' className='text-purple-500 underline font-bold'>
+              <a href='#' className='text-secondary underline font-bold'>
                 Privacy Policy
               </a>
               .

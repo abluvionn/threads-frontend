@@ -6,6 +6,6 @@ export interface Post {
   text: string;
   author: UserFromDb;
   createdAt: string;
-  likes: [];
+  likes: string[];
   replies: string[];
 }

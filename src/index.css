@@ -7,10 +7,11 @@ html {
 @theme {
   --color-main: #292653;
   --color-platinum-500: #64748b;
-  --color-purple-500: #7e49ff;
+  --color-secondary: #7e49ff;
   --color-disabled: #f1f5f9;
   --color-dark: #020617;
-  --color-main-70: #292653B2;
+  --color-main-70: #292653b2;
+  --color-light: #f8f8f8;
 }
 
 .container {

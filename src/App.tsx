@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { Layout, ProtectedRoute } from './components';
-import { Home, Login } from './pages';
+import { Home, Login, NotFound } from './pages';
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
           }
         />
         <Route path='/login' element={<Login />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </Layout>
   );

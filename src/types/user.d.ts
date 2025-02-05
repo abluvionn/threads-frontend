@@ -4,6 +4,8 @@ export interface UserFromDb {
   name: string;
   avatar: string | null;
   role: 'student' | 'teacher';
+  liked_posts: string[];
+  liked_replies: string[];
 }
 
 export interface LoginResponse {

@@ -3,6 +3,7 @@ import { login, logout } from './usersThunks';
 import { GlobalError } from '../../types/error';
 import { LoginResponse } from '../../types/user';
 import { RootState } from '../../app/store';
+import { Post } from '../../types/post';
 
 interface UsersState {
   user: LoginResponse | null;
@@ -28,6 +29,18 @@ export const usersSlice = createSlice({
       { payload: response }: PayloadAction<LoginResponse>
     ) => {
       state.user = response;
+    },
+    togglePostInFavorites: (state, { payload: post }: PayloadAction<Post>) => {
+      const foundIndex = state.user?.user.liked_posts.findIndex(
+        (id) => id === post._id
+      );
+      if (foundIndex === -1) {
+        state.user?.user.liked_posts.push(post._id);
+      } else {
+        state.user!.user.liked_posts = state.user!.user.liked_posts.filter(
+          (id) => id !== post._id
+        );
+      }
     },
   },
   extraReducers: (builder) => {
@@ -66,7 +79,7 @@ export const usersSlice = createSlice({
   },
 });
 
-export const { unsetUser, updateState } = usersSlice.actions;
+export const { unsetUser, updateState, togglePostInFavorites } = usersSlice.actions;
 
 export const usersReducer = usersSlice.reducer;
 
