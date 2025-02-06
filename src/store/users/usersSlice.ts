@@ -42,6 +42,17 @@ export const usersSlice = createSlice({
         );
       }
     },
+    addUserToFollowing: (state, { payload: id }: PayloadAction<string>) => {
+      state.user?.user.following.push(id);
+    },
+    removeUserFromFollowing: (
+      state,
+      { payload: userId }: PayloadAction<string>
+    ) => {
+      state.user!.user.following = state.user!.user.following.filter(
+        (id) => id !== userId
+      );
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -79,7 +90,13 @@ export const usersSlice = createSlice({
   },
 });
 
-export const { unsetUser, updateState, togglePostInFavorites } = usersSlice.actions;
+export const {
+  unsetUser,
+  updateState,
+  togglePostInFavorites,
+  addUserToFollowing,
+  removeUserFromFollowing,
+} = usersSlice.actions;
 
 export const usersReducer = usersSlice.reducer;
 

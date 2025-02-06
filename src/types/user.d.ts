@@ -6,6 +6,8 @@ export interface UserFromDb {
   role: 'student' | 'teacher';
   liked_posts: string[];
   liked_replies: string[];
+  followers: string[];
+  following: string[];
 }
 
 export interface LoginResponse {

@@ -6,6 +6,7 @@ import { palette } from '../../utils/palette';
 import axiosApi from '../../axiosApi';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
+  addUserToFollowing,
   selectUser,
   togglePostInFavorites,
 } from '../../store/users/usersSlice';
@@ -24,6 +25,12 @@ export const PostCard: FC<Props> = ({ postProps }) => {
     dispatch(togglePostInFavorites(post));
     setPost((post) => ({ ...post, likes: response.data.likes }));
   };
+
+  const followUser = async (id: string) => {
+    await axiosApi.post(`/users/follow`, { userId: id });
+    dispatch(addUserToFollowing(id));
+  };
+
   return (
     <div
       key={post._id}
@@ -34,18 +41,21 @@ export const PostCard: FC<Props> = ({ postProps }) => {
           src={post.author.avatar || '/icons/no-pfp.png'}
           className='w-full h-full object-cover rounded-full'
         />
-        <button
-          onClick={() => console.log(post.author.name)}
-          className='size-4 flex justify-center items-center rounded-full shadow absolute -right-0.5 -bottom-0.5 bg-white cursor-pointer active:bg-gray-100'
-        >
-          <Icon
-            name='plus'
-            size='sm'
-            color={palette.secondary}
-            width={9}
-            height={9}
-          />
-        </button>
+        {post.author._id !== user?.user._id &&
+          !user?.user.following.includes(post.author._id) && (
+            <button
+              onClick={() => followUser(post.author._id)}
+              className='size-4 flex justify-center items-center rounded-full shadow absolute -right-0.5 -bottom-0.5 bg-white cursor-pointer active:bg-gray-100'
+            >
+              <Icon
+                name='plus'
+                size='sm'
+                color={palette.secondary}
+                width={9}
+                height={9}
+              />
+            </button>
+          )}
       </div>
       <div className='flex-auto'>
         <p className='text-sm font-bold text-dark leading-6'>

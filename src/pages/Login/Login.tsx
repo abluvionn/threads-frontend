@@ -56,7 +56,7 @@ export const Login = () => {
           <div className='mt-[215px] max-w-[343px] flex flex-col items-center text-center'>
             <img src='/icons/logo.png' alt='' />
             <h1 className='mt-4 text-4xl font-semibold leading-11'>
-              Welcome to <span className='text-main'>THREADS</span>
+              Welcome to <br /> <span className='text-main uppercase'>Edu Bridge</span>
             </h1>
             <p className='mt-2 text-sm leading-5 text-platinum-500'>
               Make sure it matches the name on your university ID.
