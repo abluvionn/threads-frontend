@@ -25,14 +25,14 @@ const PostModal: FC<Props> = ({ isOpen, closeModal }) => {
     <>
       {isOpen && (
         <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/50'>
-          <div className='relative p-4 w-full max-w-xl bg-light rounded-lg shadow-sm dark:bg-gray-700'>
-            <div className='flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200'>
-              <h3 className='text-xl font-semibold text-gray-900 dark:text-white'>
+          <div className='relative p-4 w-full max-w-xl bg-light rounded-lg shadow-sm'>
+            <div className='flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200'>
+              <h3 className='text-xl font-semibold text-gray-900'>
                 New Thread
               </h3>
               <button
                 onClick={closeModal}
-                className='text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer'
+                className='text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center cursor-pointer'
               >
                 <svg
                   className='w-3 h-3'
@@ -67,7 +67,7 @@ const PostModal: FC<Props> = ({ isOpen, closeModal }) => {
             <div className='ps-3 mb-1'>
               <span>Anyone can reply & quote</span>
             </div>
-            <div className='flex items-center justify-end p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600'>
+            <div className='flex items-center justify-end p-4 md:p-5 border-t border-gray-200 rounded-b'>
               <button
                 onClick={closeModal}
                 className='py-2.5 px-5 me-3 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 cursor-pointer'
@@ -77,7 +77,7 @@ const PostModal: FC<Props> = ({ isOpen, closeModal }) => {
               <button
                 form='postForm'
                 type='submit'
-                className='btn-primary !py-2.5 !px-5 text-sm !font-medium'
+                className='btn-primary !py-2.5 !px-5 text-sm !font-medium border border-main'
               >
                 Submit
               </button>

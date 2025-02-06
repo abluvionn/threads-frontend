@@ -25,7 +25,13 @@ export const BottomNav = () => {
           )}
         </NavLink>
         <NavLink to='/search'>
-          <Icon name='search' size='md' color={palette.main} />
+          {({ isActive }) => (
+            <Icon
+              name='search'
+              size='md'
+              color={isActive ? palette.secondary : palette.main}
+            />
+          )}
         </NavLink>
         <button
           className='size-[52px] flex justify-center items-center bg-secondary rounded-full cursor-pointer'
@@ -39,11 +45,23 @@ export const BottomNav = () => {
             height={16}
           />
         </button>
-        <NavLink to='/favorites'>
-          <Icon name='heartOutlined' size='md' color={palette.main} />
+        <NavLink to='/feed'>
+          {({ isActive }) => (
+            <Icon
+              name='heartOutlined'
+              size='md'
+              color={isActive ? palette.secondary : palette.main}
+            />
+          )}
         </NavLink>
         <NavLink to='/profile'>
-          <Icon name='user' size='md' color={palette.main} />
+          {({ isActive }) => (
+            <Icon
+              name='user'
+              size='md'
+              color={isActive ? palette.secondary : palette.main}
+            />
+          )}
         </NavLink>
       </div>
       <PostModal isOpen={isPostModalOpen} closeModal={closeModal} />

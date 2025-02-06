@@ -53,10 +53,11 @@ export const Login = () => {
     {
       content: (
         <div className='flex justify-center'>
-          <div className='mt-[215px] max-w-[343px] flex flex-col items-center text-center'>
+          <div className='mt-[100px] max-w-[343px] flex flex-col items-center text-center'>
             <img src='/icons/logo.png' alt='' />
             <h1 className='mt-4 text-4xl font-semibold leading-11'>
-              Welcome to <br /> <span className='text-main uppercase'>Edu Bridge</span>
+              Welcome to <br />{' '}
+              <span className='text-main uppercase'>Edu Bridge</span>
             </h1>
             <p className='mt-2 text-sm leading-5 text-platinum-500'>
               Make sure it matches the name on your university ID.
@@ -73,7 +74,7 @@ export const Login = () => {
     },
     {
       content: (
-        <div className='mt-[101px] w-full px-6'>
+        <div className='mt-[100px] pb-10 w-full px-6'>
           <nav className='flex items-center'>
             <h1 className='text-lg font-bold leading-6 relative w-full flex items-center justify-center'>
               <button
@@ -93,7 +94,7 @@ export const Login = () => {
                 </span>
               )}
               <input
-                type='text'
+                type='number'
                 className='input-primary'
                 placeholder='ID'
                 required
@@ -127,7 +128,7 @@ export const Login = () => {
                 type='checkbox'
                 name='terms-agree'
                 id='terms-agree'
-                className='col-start-1 row-start-1 appearance-none rounded-sm border border-secondary bg-white checked:border-secondary checked:bg-secondary indeterminate:border-secondary indeterminate:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto cursor-pointer'
+                className='col-start-1 row-start-1 w-7 h-7 appearance-none rounded-sm border border-secondary bg-white checked:border-secondary checked:bg-secondary indeterminate:border-secondary indeterminate:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto cursor-pointer'
                 onChange={(e) => setIsCheckboxChecked(e.target.checked)}
                 checked={isCheckboxChecked}
               />
