@@ -3,8 +3,11 @@ import { Icon } from '../../iconpack';
 import { palette } from '../../utils/palette';
 import PostModal from '../PostModal/PostModal';
 import { useState } from 'react';
+import { useAppSelector } from '../../app/hooks';
+import { selectUser } from '../../store/users/usersSlice';
 
 export const BottomNav = () => {
+  const user = useAppSelector(selectUser);
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
   const openModal = () => {
     setIsPostModalOpen(true);
@@ -54,7 +57,7 @@ export const BottomNav = () => {
             />
           )}
         </NavLink>
-        <NavLink to='/profile'>
+        <NavLink to={`/${user?.user.alatooID}`}>
           {({ isActive }) => (
             <Icon
               name='user'

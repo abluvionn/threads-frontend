@@ -27,9 +27,24 @@ html {
 }
 
 .border-bottom-light {
-  @apply after:content-[""] after:absolute after:border-b after:border-[#E2E8F0] after:-left-6 after:-right-6 after:bottom-0;
+  @apply after:content-[""] after:absolute after:border-b after:border-[#E2E8F0] after:-left-10 after:-right-10 after:bottom-0;
+}
+
+.border-bottom-dark {
+  @apply after:content-[""] after:absolute after:border-b after:border-gray-500 after:-left-10 after:-right-10 after:bottom-0;
 }
 
 .bg-full-white {
   @apply before:content-[""] before:absolute before:w-[401px] before:-left-6 before:h-full before:bg-white;
+}
+
+.vertical-stroke::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: calc(100% - 60px);
+  background-color: var(--color-gray-500);
+  left: 20px;
+  top: 75px;
+  border-radius: 2px;
 }

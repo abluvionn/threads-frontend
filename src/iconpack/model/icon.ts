@@ -3,6 +3,7 @@ import { EyeClosed } from '../icons/EyeClosed';
 import { HeartFilled } from '../icons/HeartFilled';
 import { HeartOutlined } from '../icons/HeartOutlined';
 import { Home } from '../icons/Home';
+import { JamMenu } from '../icons/JamMenu';
 import { Plus } from '../icons/Plus';
 import { Replies } from '../icons/Replies';
 import { Search } from '../icons/Search';
@@ -20,4 +21,5 @@ export const iconMap = {
   user: User,
   plus: Plus,
   heartFilled: HeartFilled,
+  jamMenu: JamMenu,
 } as const;

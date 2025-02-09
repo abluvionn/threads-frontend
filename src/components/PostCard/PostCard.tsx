@@ -10,6 +10,7 @@ import {
   selectUser,
   togglePostInFavorites,
 } from '../../store/users/usersSlice';
+import { Link } from 'react-router-dom';
 
 interface Props {
   postProps: Post;
@@ -36,11 +37,13 @@ export const PostCard: FC<Props> = ({ postProps }) => {
       key={post._id}
       className='flex gap-x-[14px] pt-6 pb-5 border-bottom-light relative'
     >
-      <div className='flex-none size-[42px] relative'>
-        <img
-          src={post.author.avatar || '/icons/no-pfp.png'}
-          className='w-full h-full object-cover rounded-full'
-        />
+      <div className='flex-none size-[42px] relative bg-light rounded-full'>
+        <Link to={`/${post.author.alatooID}`}>
+          <img
+            src={post.author.avatar || '/icons/no-pfp.png'}
+            className='w-full h-full object-cover rounded-full'
+          />
+        </Link>
         {post.author._id !== user?.user._id &&
           !user?.user.following.includes(post.author._id) && (
             <button
@@ -58,13 +61,18 @@ export const PostCard: FC<Props> = ({ postProps }) => {
           )}
       </div>
       <div className='flex-auto'>
-        <p className='text-sm font-bold text-dark leading-6'>
+        <Link
+          to={`/${post.author.alatooID}`}
+          className='text-sm font-bold text-dark leading-6'
+        >
           {post.author.name}
           <span className='ms-2 text-xs leading-6 text-main-70 font-normal'>
             {formatTimeAgo(post.createdAt)}
           </span>
-        </p>
-        <p className='leading-[22px] text-main'>{post.text}</p>
+        </Link>
+        <Link to={`/p/${post._id}`} className='block leading-[22px] text-main'>
+          {post.text}
+        </Link>
         <div className='pt-5 flex gap-x-4'>
           <button
             className='h-6 flex justify-center items-center cursor-pointer'
@@ -79,15 +87,15 @@ export const PostCard: FC<Props> = ({ postProps }) => {
               {post.likes.length || null}
             </span>
           </button>
-          <button className='h-6 flex justify-center items-center cursor-pointer'>
+          <Link
+            to={`/p/${post._id}`}
+            className='h-6 flex justify-center items-center cursor-pointer'
+          >
             <Icon name='replies' size='md' color={palette.main} />
             <span className='text-[15px] font-normal text-main ms-1'>
               {post.replies.length || null}
             </span>
-          </button>
-          <button className='h-6 flex justify-center items-center cursor-pointer'>
-            <Icon name='share' size='md' color={palette.main} />
-          </button>
+          </Link>
         </div>
       </div>
     </div>

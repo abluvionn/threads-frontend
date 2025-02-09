@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Layout, ProtectedRoute } from './components';
-import { Feed, Home, Login, NotFound, Search } from './pages';
+import { Feed, Home, Login, NotFound, Profile, Search } from './pages';
+import { FullPost } from './pages/FullPost/FullPost';
 
 function App() {
   return (
@@ -28,6 +29,22 @@ function App() {
           element={
             <ProtectedRoute>
               <Search />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path='/:id'
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path='/p/:id'
+          element={
+            <ProtectedRoute>
+              <FullPost />
             </ProtectedRoute>
           }
         />
